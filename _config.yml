@@ -5,8 +5,13 @@ plugins:
   - jekyll-octicons
   - jekyll-github-metadata
   - jemoji
+  - jekyll-optional-front-matter
 
 permalink: /:year/:month/:day/:title/
+
+optional_front_matter:
+  remove_originals: true
+  enabled: true
 
 defaults:
   -

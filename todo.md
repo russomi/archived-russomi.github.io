@@ -1,8 +1,3 @@
----
-title: "Notes"
-published: false
----
-
 # Notes
 Topics to write about and research...
 
@@ -88,4 +83,3 @@ Topics to write about and research...
 * [aws-service-catalog-factory](https://github.com/awslabs/aws-service-catalog-factory)
 * [aws-limit-monitor](https://github.com/awslabs/aws-limit-monitor)
 * [aws-securityhub-multiaccount-scripts](https://github.com/awslabs/aws-securityhub-multiaccount-scripts)
-
