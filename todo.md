@@ -1,4 +1,4 @@
-# Notes
+# TODO
 Topics to write about and research...
 
 ## Topics to Research

@@ -10,13 +10,19 @@ plugins:
 permalink: /:year/:month/:day/:title/
 
 optional_front_matter:
-  remove_originals: true
+  remove_originals: false
   enabled: true
+
+include:
+  - CONTRIBUTING.md
+  - README.md
+  - todo.md
+  - about.md
 
 defaults:
   -
     scope:
-      path: "" # an empty string here means all files in the project
+      path: "posts" # an empty string here means all files in the project
       type: "posts"
     values:
       layout: "post"

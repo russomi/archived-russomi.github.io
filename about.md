@@ -1,14 +1,23 @@
 ---
+title: "About"
 layout: default
 ---
-# About
 
 ## Milestones
+tesing
 
 ### Early
+testing
+
+test
+
 
 ### Mid
+test
 
 ### Late
+test
 
 ## References
+* test
+* test
