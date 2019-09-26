@@ -5,6 +5,11 @@ published: false
 # TODO
 Topics to write about and research...
 
+## Tasks
+- [x] Write a post about "Working Backwards" - https://www.allthingsdistributed.com/2006/11/working_backwards.html
+- [ ] New Task
+
+
 ## Topics to Research
 * Work backwards for contact-router, botpod, botcluster
 * Create a list of domains and outline ideas
