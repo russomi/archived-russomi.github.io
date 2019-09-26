@@ -7,8 +7,9 @@ Topics to write about and research...
 
 ## Tasks
 - [x] Write a post about "Working Backwards" - https://www.allthingsdistributed.com/2006/11/working_backwards.html
-- [ ] New Task
-
+- [ ] Expand Working Backwards post
+    - [ ] Less quotes, find out how to do a footnote / quote
+    - [ ] Outline sample - Simple Press Release, Mockup, FAQ...
 
 ## Topics to Research
 * Work backwards for contact-router, botpod, botcluster
