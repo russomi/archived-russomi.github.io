@@ -3,21 +3,4 @@ title: "About"
 layout: default
 ---
 
-## Milestones
-tesing
-
-### Early
-testing
-
-test
-
-
-### Mid
-test
-
-### Late
-test
-
-## References
-* test
-* test
+<b>Content Goes here</b>
