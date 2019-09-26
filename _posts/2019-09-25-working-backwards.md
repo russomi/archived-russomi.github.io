@@ -31,9 +31,9 @@ Content goes here
 Content goes here
 
 ## Next Steps
-- [ ] Step 1
-- [ ] Step 2
-- [ ] Step 3
+[ ] Step 1
+[ ] Step 2
+[ ] Step 3
 
 ---
 [1]: https://www.allthingsdistributed.com/2006/11/working_backwards.html
