@@ -36,8 +36,7 @@ Content goes here
 * [ ] Step 2
 * [ ] Step 3
 
-### Footnotes
-[^1]: See [Working Backwards](https://www.allthingsdistributed.com/2006/11/working_backwards.html)
-
 ---
+[^1]: Taken from [Working Backwards][1]
+
 [1]: https://www.allthingsdistributed.com/2006/11/working_backwards.html
