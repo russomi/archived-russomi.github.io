@@ -27,6 +27,8 @@ Taken from _How to Write a Press Release_[^2]:
 1. Provide valuable background information on the subject.
 1. Summarize the "who" and the "what" in a boilerplate.
 
+The [AWS Chatbot][3] blog post is an example of a press release.
+
 ### Frequently Asked Questions
 Content goes here
 
