@@ -19,7 +19,13 @@ The Working Backwards product definition process to achieve clarity on delivery:
 1. Write the User Manual
 
 ### Press Release
-Content goes here
+Taken from _How to Write a Press Release_[^2]:
+
+1. Make your headline irresistible.
+1. Convey the news's value to the press.
+1. Offer a tempting quotable.
+1. Provide valuable background information on the subject.
+1. Summarize the "who" and the "what" in a boilerplate.
 
 ### Frequently Asked Questions
 Content goes here
@@ -37,6 +43,8 @@ Content goes here
 * [ ] Step 3
 
 ---
-[^1]: Taken from [Working Backwards][1]
+[^1]: [Working Backwards][1]
+[^2]: [How to Write a Press Release][2]
 
 [1]: https://www.allthingsdistributed.com/2006/11/working_backwards.html
+[2]: https://blog.hubspot.com/marketing/press-release-template-ht
