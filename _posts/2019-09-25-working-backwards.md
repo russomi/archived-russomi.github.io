@@ -27,7 +27,7 @@ Taken from _How to Write a Press Release_[^2]:
 1. Provide valuable background information on the subject.
 1. Summarize the "who" and the "what" in a boilerplate.
 
-The [AWS Chatbot][3] blog post is an example of a press release.
+The [AWS Chatbot][3] blog post is an example of a press release of a new AWS service.
 
 ### Frequently Asked Questions
 Content goes here
@@ -50,3 +50,4 @@ Content goes here
 
 [1]: https://www.allthingsdistributed.com/2006/11/working_backwards.html
 [2]: https://blog.hubspot.com/marketing/press-release-template-ht
+[3]: https://aws.amazon.com/blogs/devops/introducing-aws-chatbot-chatops-for-aws/
