@@ -4,7 +4,7 @@ published: true
 ---
 
 ## Overview
-Starting with the customer and working backwards sounds like common sense.  It is 2019 and [Werner posted about it back
+Starting with the customer and working backwards[^1] sounds like common sense.  It is 2019 and [Werner posted about it back
 in 2006][1].  It is worth revisiting the process in the context of the problems we try to solve in cloud computing today.
 
 One challenge in delivery is ensuring _everyone_ is on the same page.  If the documents required to communicate the 
@@ -38,3 +38,4 @@ Content goes here
 
 ---
 [1]: https://www.allthingsdistributed.com/2006/11/working_backwards.html
+[^1]: See [Working Backwards](https://www.allthingsdistributed.com/2006/11/working_backwards.html)
