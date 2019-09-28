@@ -9,8 +9,11 @@ Topics to write about and research...
 - [x] Write a post about "Working Backwards" - https://www.allthingsdistributed.com/2006/11/working_backwards.html
 - [ ] Expand Working Backwards post
     - [x] Less quotes
-    - [ ] Find out how to do a footnote / quote [^1]
-    - [ ] Outline sample - Simple Press Release, Mockup, FAQ...
+    - [x] Find out how to do a footnote / quote [^1]
+    - [x] Press Release
+    - [ ] Frequently Asked Questions
+    - [ ] Mock ups
+    - [ ] User Manual
 
 [^1]: This is a footnote.
 
