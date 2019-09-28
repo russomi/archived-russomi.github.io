@@ -27,7 +27,15 @@ Taken from _How to Write a Press Release_[^2]:
 1. Provide valuable background information on the subject.
 1. Summarize the "who" and the "what" in a boilerplate.
 
-The [AWS Chatbot][3] blog post is an example of a press release of a new AWS service.
+The [AWS Chatbot][3] blog post is an example of a press release of a new AWS service.  The post follows the steps to
+a press release identified above:
+
+1. Headline - `Introducing AWS Chatbot: ChatOps for AWS`
+1. Convey the Value - `Today, AWS introduces a public beta of AWS Chatbot, a new service that enables DevOps teams to 
+receive AWS notifications and execute commands in Slack channels and Amazon Chime chat rooms with only minimal effort.`
+1. Quotable - `What our customers say`
+1. Background information on the subject - `Walkthrough` 
+1. Summarize the "who" and "what" - `Conclusion` in addition to the footer of the page 
 
 ### Frequently Asked Questions
 Content goes here
