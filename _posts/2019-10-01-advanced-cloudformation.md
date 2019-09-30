@@ -66,7 +66,9 @@ Concept 2
 ## References
 * [AWS Advanced CloudFormation Course][1]
 * [AdvancedCloudFormation GitHub Repo][2]
+* [GitHub Guides - Mastering Markdown][3]
 
 ---
 [1]: https://acloud.guru/learn/aws-advanced-cloudformation
 [2]: https://github.com/ACloudGuru/AdvancedCloudFormation
+[3]: https://guides.github.com/features/mastering-markdown
