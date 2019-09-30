@@ -7,9 +7,6 @@ published: true
 Starting with the customer and working backwards[^1] sounds like common sense.  It is 2019 and [Werner posted about it back
 in 2006][1].  It is worth revisiting the process in the context of the problems we try to solve in cloud computing today.
 
-One challenge in delivery is ensuring _everyone_ is on the same page.  If the documents required to communicate the 
-concept are created first, it provides the scope and shared vision on the goal.
-
 ## Process
 The Working Backwards product definition process to achieve clarity on delivery:
 
@@ -27,6 +24,7 @@ Taken from _How to Write a Press Release_[^2]:
 1. Provide valuable background information on the subject.
 1. Summarize the "who" and the "what" in a boilerplate.
 
+### Press Release Example
 The [AWS Chatbot][3] blog post is an example of a press release of a new AWS service.  The post follows the steps to
 a press release identified above:
 
@@ -40,7 +38,9 @@ receive AWS notifications and execute commands in Slack channels and Amazon Chim
 ### Frequently Asked Questions
 The purpose of an FAQ is generally to provide information on frequent questions or concerns; however, the format 
 is a useful means of organizing information, and text consisting of questions and their answers may thus be called 
-an FAQ regardless of whether the questions are actually frequently asked[^3].
+an FAQ regardless of whether the questions are actually frequently asked[^3].  Shopify has an excellent post 
+called [The FAQ Page: Why You Need It, How to Build One, and 10 Great Examples][5]. Answer questions to reduce 
+customer frustration.
 
 #### How do I ...?
 Answer to the question.
@@ -95,3 +95,4 @@ Provide a recommended path to learn more about the product.
 [2]: https://blog.hubspot.com/marketing/press-release-template-ht
 [3]: https://aws.amazon.com/blogs/devops/introducing-aws-chatbot-chatops-for-aws/
 [4]: http://www.faqs.org/faqs/faqs/about-faqs/
+[5]: https://www.shopify.com/blog/120928069-how-to-create-faq-page
