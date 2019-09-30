@@ -6,6 +6,8 @@ published: true
 > Manage your infrastructure as code, by mastering AWS CloudFormation. Deep-dive theory and hands-on labs 
 help you achieve maximum results!
 
+Notes and labs related to the [course][1].
+
 ## Section 1
 * CloudFormation & Template Anatomy Refresher
 * YAML 101 - Using it in CloudFormation
