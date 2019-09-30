@@ -6,10 +6,10 @@ published: true
 > Manage your infrastructure as code, by mastering AWS CloudFormation. Deep-dive theory and hands-on labs 
 help you achieve maximum results!
 
-Notes and labs related to the [course][1].
+Notes and labs related to the [AWS Advanced CloudFormation Course][1].
 
 ## Section 1
-* CloudFormation & Template Anatomy Refresher
+* [CloudFormation & Template Anatomy Refresher](#TemplateRefresher)
 * YAML 101 - Using it in CloudFormation
 * Our First Template - The Infrastructure
 * Template Portability & Reuse
@@ -33,10 +33,12 @@ Notes and labs related to the [course][1].
 * Extending the template - auto subnet selection
 * Theory : Automated Deployment Portal
 
+### CloudFormation & Template Anatomy Refresher {#TemplateRefresher}
+
+
 ## References
 * [AWS Advanced CloudFormation Course][1]
 * [AdvancedCloudFormation GitHub Repo][2]
-
 
 ---
 [1]: https://acloud.guru/learn/aws-advanced-cloudformation
