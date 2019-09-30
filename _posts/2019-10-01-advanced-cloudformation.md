@@ -9,8 +9,9 @@ help you achieve maximum results!
 Notes and labs related to the [AWS Advanced CloudFormation Course][1].
 
 ## Section 1
-* [CloudFormation & Template Anatomy Refresher](#TemplateRefresher)
-* YAML 101 - Using it in CloudFormation
+
+* [CloudFormation Template Refresher](#CloudFormation-&-Template-Anatomy-Refresher)
+* [YAML in CloudFormation](#YAML-in-CloudFormation)
 * Our First Template - The Infrastructure
 * Template Portability & Reuse
 * Userdata
@@ -23,6 +24,7 @@ Notes and labs related to the [AWS Advanced CloudFormation Course][1].
 * Serverless Self-Service Portal
 
 ## Section 2
+
 * Shared Infrastructure
 * Application Environment
 * AWS Custom Parameter Types
@@ -33,8 +35,33 @@ Notes and labs related to the [AWS Advanced CloudFormation Course][1].
 * Extending the template - auto subnet selection
 * Theory : Automated Deployment Portal
 
-### CloudFormation & Template Anatomy Refresher {#TemplateRefresher}
+### CloudFormation Template Refresher
 
+Concept 1
+
+* point 1
+* point 2
+* point 3
+
+Concept 2
+
+* point 1
+* point 2
+* point 3
+
+### YAML in CloudFormation
+
+Concept 1
+
+* point 1
+* point 2
+* point 3
+
+Concept 2
+
+* point 1
+* point 2
+* point 3
 
 ## References
 * [AWS Advanced CloudFormation Course][1]
