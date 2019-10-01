@@ -35,7 +35,7 @@ Notes and labs related to the [AWS Advanced CloudFormation Course][1].
 * Extending the template - auto subnet selection
 * Theory : Automated Deployment Portal
 
-### CloudFormation Template
+### CloudFormation Template {#CloudFormation-Template}
 
 Concept 1
 
@@ -49,7 +49,7 @@ Concept 2
 * point 2
 * point 3
 
-### YAML in CloudFormation
+### YAML in CloudFormation {#YAML-in-CloudFormation}
 
 Concept 1
 
