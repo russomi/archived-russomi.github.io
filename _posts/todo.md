@@ -28,6 +28,8 @@ Topics to write about and research...
 * Update blog from slack, email, txt message, twitter
 
 ## AWS Labs
+* [Amazon VPC IPSec VPNs - Dynamic BGP Routing Demo](https://cloudacademy.com/course/amazon-vpc-ipsec-vpns-understanding-building-and-configuring/amazon-vpc-ipsec-vpns-dynamic-bgp-routing-demo/?context_resource=lp&context_id=377)
+* [cloudacademy/aws-cloudformation](https://github.com/cloudacademy/aws-cloudformation)
 * [lambda-runcommand-configuration-management](https://github.com/awslabs/lambda-runcommand-configuration-management)
 * [aws-consolidated-admin](https://github.com/awslabs/aws-consolidated-admin)
 * [aws-codepipeline-custom-job-worker](https://github.com/awslabs/aws-codepipeline-custom-job-worker)
