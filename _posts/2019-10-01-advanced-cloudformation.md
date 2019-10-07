@@ -1,6 +1,6 @@
 ---
 title: "Advanced Cloudformation"
-published: true
+published: false
 ---
 ## Overview
 > Manage your infrastructure as code, by mastering AWS CloudFormation. Deep-dive theory and hands-on labs 

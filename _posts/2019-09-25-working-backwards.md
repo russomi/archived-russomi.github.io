@@ -4,13 +4,14 @@ published: true
 ---
 
 ## Overview
-Starting with the customer and working backwards[^1] sounds like common sense.  It is 2019 and [Werner posted about it back
-in 2006][1].  It is worth revisiting the process in the context of the problems we try to solve in cloud computing today.
+Starting with the customer and working backwards[^1] sounds like common sense.  It is 2019 and 
+[Werner posted about it back in 2006][1].  It is worth revisiting the simplicity of the process to identify the minimum
+required for successful delivery.  
 
 ## Process
 The Working Backwards product definition process to achieve clarity on delivery:
 
-1. Write the Press Release
+1. Write the Press Release or blog post
 1. Write a Frequently Asked Questions document
 1. Define the customer experience
 1. Write the User Manual
@@ -19,12 +20,11 @@ The Working Backwards product definition process to achieve clarity on delivery:
 Taken from _How to Write a Press Release_[^2]:
 
 1. Make your headline irresistible.
-1. Convey the news's value to the press.
-1. Offer a tempting quotable.
-1. Provide valuable background information on the subject.
-1. Summarize the "who" and the "what" in a boilerplate.
+1. Convey the value to the user.
+1. Offer a quote from a user.
+1. Provide valuable background information.
+1. Summarize the "who" and the "what"
 
-### Press Release Example
 The [AWS Chatbot][3] blog post is an example of a press release of a new AWS service.  The post follows the steps to
 a press release identified above:
 
@@ -35,6 +35,8 @@ receive AWS notifications and execute commands in Slack channels and Amazon Chim
 1. Background information on the subject - `Walkthrough` 
 1. Summarize the "who" and "what" - `Conclusion` in addition to the footer of the page 
 
+---
+
 ### Frequently Asked Questions
 The purpose of an FAQ is generally to provide information on frequent questions or concerns; however, the format 
 is a useful means of organizing information, and text consisting of questions and their answers may thus be called 
@@ -42,17 +44,22 @@ an FAQ regardless of whether the questions are actually frequently asked[^3].  S
 called [The FAQ Page: Why You Need It, How to Build One, and 10 Great Examples][5]. Answer questions to reduce 
 customer frustration.
 
-#### How do I ...?
+#### Q: What is...?
 Answer to the question.
 
-#### How do I ...?
+#### Q: How do I get started with...?
 Answer to the question.
 
-#### How do I ...?
+#### Q: When should I use...?
 Answer to the question.
 
-#### How do I ...?
+#### Q: How can I...?
 Answer to the question.
+
+#### Q: How much does it cost...?
+Answer to the question.
+
+---
 
 ### User Experience
 User Experience content, persona, process flows, mocks, etc. 
@@ -66,6 +73,8 @@ User Experience content, persona, process flows, mocks, etc.
 #### Heading 3
 User Experience content, persona, process flows, mocks, etc. 
 
+---
+
 ### User Manual
 The user manual covers setup and detailed steps to use supported features.
 
@@ -78,12 +87,16 @@ The user manual covers setup and detailed steps to use supported features.
 #### Heading 3
 The user manual covers setup and detailed steps to use supported features.
 
+---
+
 ## Next Steps
 Provide a recommended path to learn more about the product.
 
 * [ ] Step 1
 * [ ] Step 2
 * [ ] Step 3
+
+---
 
 ## References
 [^1]: [Working Backwards][1]

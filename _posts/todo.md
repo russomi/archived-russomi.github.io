@@ -28,6 +28,8 @@ Topics to write about and research...
 * Update blog from slack, email, txt message, twitter
 
 ## AWS Labs
+* https://aws.amazon.com/blogs/database/best-practices-for-securing-sensitive-data-in-aws-data-stores/
+* https://aws.amazon.com/blogs/networking-and-content-delivery/debugging-tool-for-network-connectivity-from-amazon-vpc/
 * [AWSinAction/code2](https://github.com/AWSinAction/code2)
 * [Amazon VPC IPSec VPNs - Dynamic BGP Routing Demo](https://cloudacademy.com/course/amazon-vpc-ipsec-vpns-understanding-building-and-configuring/amazon-vpc-ipsec-vpns-dynamic-bgp-routing-demo/?context_resource=lp&context_id=377)
 * [cloudacademy/aws-cloudformation](https://github.com/cloudacademy/aws-cloudformation)
