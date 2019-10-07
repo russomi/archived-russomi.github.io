@@ -96,8 +96,6 @@ Provide a recommended path to learn more about the product.
 * [ ] Step 2
 * [ ] Step 3
 
----
-
 ## References
 [^1]: [Working Backwards][1]
 [^2]: [How to Write a Press Release][2]
