@@ -78,29 +78,87 @@ See [Template Anatomy][4].
 
 AWSTemplateFormatVersion: "2010-09-09"
 
-Description: |
-  String
+Description: >
+  Here are some
+  details about
+  the template.
 
 Metadata:
-  template metadata
+  Instances:
+    Description: "Information about the instances"
+  Databases: 
+    Description: "Information about the databases"
 
-Parameters:
-  set of parameters
+Parameters: 
+  InstanceTypeParameter: 
+    Type: String
+    Default: t2.micro
+    AllowedValues: 
+      - t2.micro
+      - m1.small
+      - m1.large
+    Description: Enter t2.micro, m1.small, or m1.large. Default is t2.micro.
+  EnvType: 
+    Description: Environment type.
+    Default: test
+    Type: String
+    AllowedValues: 
+      - prod
+      - test
+    ConstraintDescription: must specify prod or test.
 
-Mappings:
-  set of mappings
+Mappings: 
+  RegionMap: 
+    us-east-1:
+      HVM64: ami-0ff8a91507f77f867
+      HVMG2: ami-0a584ac55a7631c0c
+    us-west-1:
+      HVM64: ami-0bdb828fd58c52235
+      HVMG2: ami-066ee5fd4a9ef77f1
+    eu-west-1:
+      HVM64: ami-047bb4163c506cd98
+      HVMG2: ami-0a7c483d527806435
+    ap-northeast-1:
+      HVM64: ami-06cd52961ce9f0d85
+      HVMG2: ami-053cdd503598e4a9d
+    ap-southeast-1:
+      HVM64: ami-08569b978cc4dfa10
+      HVMG2: ami-0be9df32ae9f92309
 
-Conditions:
-  set of conditions
+Conditions: 
+  CreateProdResources: !Equals [ !Ref EnvType, prod ]
 
 Transform:
-  set of transforms
+  - CreateSubnetsPerAZ
 
 Resources:
-  set of resources
-
-Outputs:
-  set of outputs
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType:
+        Ref: InstanceTypeParameter
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", HVM64]
+  MountPoint: 
+    Type: "AWS::EC2::VolumeAttachment"
+    Condition: CreateProdResources
+    Properties: 
+      InstanceId: 
+        !Ref EC2Instance
+      VolumeId: 
+        !Ref NewVolume
+      Device: /dev/sdh
+  NewVolume: 
+    Type: "AWS::EC2::Volume"
+    Condition: CreateProdResources
+    Properties: 
+      Size: 100
+      AvailabilityZone: 
+        !GetAtt EC2Instance.AvailabilityZone
+Outputs: 
+  VolumeId: 
+    Condition: CreateProdResources
+    Value: 
+      !Ref NewVolume
 
 ```
 
