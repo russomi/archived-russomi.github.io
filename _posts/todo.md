@@ -11,7 +11,7 @@ Topics to write about and research...
     - [x] Less quotes
     - [x] Find out how to do a footnote / quote [^1]
     - [x] Press Release
-    - [ ] Frequently Asked Questions
+    - [x] Frequently Asked Questions
     - [ ] Mock ups
     - [ ] User Manual
 
@@ -28,6 +28,8 @@ Topics to write about and research...
 * Update blog from slack, email, txt message, twitter
 
 ## AWS Labs
+* [AWS Cloud Adoption Framework (CAF)](https://aws.amazon.com/professional-services/CAF/)
+* [Skyscanner/LambdaGuard](https://github.com/Skyscanner/LambdaGuard)
 * https://aws.amazon.com/blogs/database/best-practices-for-securing-sensitive-data-in-aws-data-stores/
 * https://aws.amazon.com/blogs/networking-and-content-delivery/debugging-tool-for-network-connectivity-from-amazon-vpc/
 * [AWSinAction/code2](https://github.com/AWSinAction/code2)
