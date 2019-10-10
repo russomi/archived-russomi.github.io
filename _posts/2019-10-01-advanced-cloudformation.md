@@ -3,69 +3,110 @@ title: "Advanced Cloudformation"
 published: false
 ---
 ## Overview
-> Manage your infrastructure as code, by mastering AWS CloudFormation. Deep-dive theory and hands-on labs 
-help you achieve maximum results!
-
 Notes and labs related to the [AWS Advanced CloudFormation Course][1].
-
-## Section 1
-
-* [CloudFormation Template](#CloudFormation-Template)
-* [YAML in CloudFormation](#YAML-in-CloudFormation)
-* [Our First Template - The Infrastructure](#Infrastructure-Template)
-* Template Portability & Reuse
-* Userdata
-* CloudFormation Init & CFNHUP
-* Creation Policies
-* Deletion Policies
-* Intrinsic Functions
-* Parameter Constraints
-* CloudFormation Service Roles
-* Serverless Self-Service Portal
-
-## Section 2
-
-* Shared Infrastructure
-* Application Environment
-* AWS Custom Parameter Types
-* Stack Reuse
-* Improving Stack Updates
-* Lambda 101
-* Custom Resources Using Lambda
-* Extending the template - auto subnet selection
-* Theory : Automated Deployment Portal
 
 ---
 
-### CloudFormation Template {#CloudFormation-Template}
+### Data Structures in YAML
 
-Concept 1
+* Scalars
+* Lists
+* Associative Arrays
 
-* point 1
-* point 2
-* point 3
+#### Scalar 
 
-Concept 2
+* Strings (scalars) are ordinarily unquoted, but may be enclosed in double-quotes ("), or single-quotes (').
+* Block scalars are delimited with indentation with optional modifiers to preserve (|) or fold (>) newlines.
 
-* point 1
-* point 2
-* point 3
+```yaml
+name: "value"
+age: "20"
+isActive: "false"
+data: | # preserves newlines
+   There once was a tall man from Ealing
+   Who got on a bus to Darjeeling
+       It said on the door
+       "Please don't sit on the floor"
+   So he carefully sat on the ceiling
+folded_data: >  # indentation and trailing whitespace are stripped
+   Wrapped text
+   will be folded
+   into a single
+   paragraph
 
-### YAML in CloudFormation {#YAML-in-CloudFormation}
+   Blank lines denote
+   paragraph breaks
+```
 
-Concept 1
+#### Lists
 
-* point 1
-* point 2
-* point 3
+```yaml
+keyname1: ["value1", "value2"]
 
-Concept 2
+# or #
 
-* point 1
-* point 2
-* point 3
+keyname2:
+  - value1
+  - value2
+```
 
-### Our First Template - The Infrastructure {#Infrastructure-Template}
+#### Associative Array
+
+```yaml
+listOfKeyValuePairs:
+  - obj1key1: "obj1value"
+  - obj2key1: "obj2value"
+
+# and #
+
+listOfObjects:
+  - obj1key1: "obj1value"
+    obj1key2: "obj1value"
+  - obj2key1: "obj2value"
+    obj2key2: "obj2value"
+```
+
+See [https://yaml.org/spec/1.2/spec.html](https://yaml.org/spec/1.2/spec.html) for details.
+
+---
+
+### Template Sections
+
+See [Template Anatomy][4].
+
+```yaml
+
+AWSTemplateFormatVersion: "2010-09-09"
+
+Description: |
+  String
+
+Metadata:
+  template metadata
+
+Parameters:
+  set of parameters
+
+Mappings:
+  set of mappings
+
+Conditions:
+  set of conditions
+
+Transform:
+  set of transforms
+
+Resources:
+  set of resources
+
+Outputs:
+  set of outputs
+
+```
+
+---
+
+### Simple template
 
 A simple template that contains a Database, an EC2 instance, and an S3 bucket.
 
@@ -104,3 +145,4 @@ Resources:
 [1]: https://acloud.guru/learn/aws-advanced-cloudformation
 [2]: https://github.com/ACloudGuru/AdvancedCloudFormation
 [3]: https://guides.github.com/features/mastering-markdown
+[4]: https://docs.aws.amazon.com/en_pv/AWSCloudFormation/latest/UserGuide/template-anatomy.html
