@@ -17,7 +17,15 @@ Topics to write about and research...
 
 [^1]: This is a footnote.
 
+## Landing Zone Customization ideas
+
+- [ ] VPC Flow flogs - How does Cloudtrail work?  Does it send to both s3 and cloudwatch?
+- [ ] Config Aggregator - How does Guard duty work?
+- [ ] Setup Roles/Permissions for Service Catalog Users and Admins
+- [ ] Add new account to existing directory and assign permissions
+
 ## Topics to Research
+
 * Work backwards for contact-router, botpod, botcluster
 * Create a list of domains and outline ideas
 * Mental health / Burnout post
