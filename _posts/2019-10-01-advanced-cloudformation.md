@@ -194,6 +194,16 @@ Resources:
       BucketName: wp-xxxxxxxxxxx # replace xxxxxxxxxxx with random
 ```
 
+### Portability and Reuse
+
+### Userdata
+
+### cfn-init & cfnhup
+
+### Creation Policies
+
+### Deletion Policies
+
 ### Intrinsic Functions
 
 See the [Intrinsic Function Reference][5].
@@ -443,6 +453,33 @@ Outputs:
     Value: !Join ["", ["http://", !GetAtt EC2.PublicIp, "/wordpress/wp-login.php"]]
 
 ```
+
+### Parameter Constraints
+
+### CloudFormation Service Roles
+
+### Serverless Self-Service Portal
+
+### Shared Infrastructure
+
+### Application Environment
+
+### AWS Parameter Types
+
+### Stack Reuse
+
+### Stack Updates
+
+### Lambda 101
+
+### Custom Resources using Lambda
+
+### Auto Subnet Selection
+
+### Automated Deployment Portal
+
+
+
 
 ## References
 * [AWS Advanced CloudFormation Course][1]
