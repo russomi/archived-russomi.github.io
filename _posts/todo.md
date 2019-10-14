@@ -36,6 +36,8 @@ Topics to write about and research...
 * Update blog from slack, email, txt message, twitter
 
 ## AWS Labs
+
+* [Aligning to the NIST CSF in the AWS Cloud](https://pages.awscloud.com/rs/112-TZM-766/images/NIST_Cybersecurity_Framework_CSF.pdf)
 * [AWS Cloud Adoption Framework (CAF)](https://aws.amazon.com/professional-services/CAF/)
 * [Skyscanner/LambdaGuard](https://github.com/Skyscanner/LambdaGuard)
 * https://aws.amazon.com/blogs/database/best-practices-for-securing-sensitive-data-in-aws-data-stores/
