@@ -55,16 +55,74 @@ Study notes and labs...
 
 #### Lab - Air Quality Analysis
 
-- [ ] Identify open source data repository for air quality readings
+- [x] Identify open source data repository for air quality readings
     - [OpenAQ](https://registry.opendata.aws/openaq/) - Global, aggregated physical air quality data from public data 
     sources provided by government, research-grade and other sources. These awesome groups do the hard work of measuring 
     these data and publicly sharing them, and our community makes them more universally-accessible to both humans and 
     machines.
-- [ ] Setup a way to query that data via AWS Services and tools
+- [x] Setup a way to query that data via AWS Services and tools
     - [How in the world do you access air quality data older than 90 days on the OpenAQ platform? One way is to use Amazon Athena.](https://medium.com/@openaq/how-in-the-world-do-you-access-air-quality-data-older-than-90-days-on-the-openaq-platform-8562df519ecd)
     - [Accessing data older than 90 days from OpenAQ](https://gist.github.com/jflasher/573525aff9a5d8a966e5718272ceb25a)
     - [Amazon Athena User Guide](https://docs.aws.amazon.com/en_pv/athena/latest/ug/what-is.html)
-- [ ] What city had the highest average ozone (O3) reading on October 9, 2018
+    - [How to create Athena database via API](https://stackoverflow.com/questions/47625024/how-to-create-athena-database-via-api)
+- [x] What city had the highest average ozone (O3) reading on October 9, 2018
+    - Answer: TULARE with avg_reading = 0.056333333
+
+##### AWS Athena CLI examples
+ 
+```shell script
+aws s3 mb s3://openqa-athena-output
+aws athena start-query-execution --query-string "CREATE database openaqdatabase" --result-configuration "OutputLocation=s3://openqa-athena-output"
+aws athena get-query-execution --query-execution-id 0202cd7a-42da-4202-b6e9-ba9bd00e77c5
+aws athena start-query-execution --query-string file://openaq-table.sql --result-configuration "OutputLocation=s3://openqa-athena-output"
+```
+
+##### Create Table for openaq
+
+```hiveql
+CREATE EXTERNAL TABLE IF NOT EXISTS
+  `openaqdatabase`.`openaq`(
+  `date` struct<utc:string,local:string> COMMENT 'from deserializer', 
+  `parameter` string COMMENT 'from deserializer', 
+  `location` string COMMENT 'from deserializer', 
+  `value` float COMMENT 'from deserializer', 
+  `unit` string COMMENT 'from deserializer', 
+  `city` string COMMENT 'from deserializer', 
+  `attribution` array<struct<name:string,url:string>> COMMENT 'from deserializer', 
+  `averagingperiod` struct<unit:string,value:float> COMMENT 'from deserializer', 
+  `coordinates` struct<latitude:float,longitude:float> COMMENT 'from deserializer', 
+  `country` string COMMENT 'from deserializer', 
+  `sourcename` string COMMENT 'from deserializer', 
+  `sourcetype` string COMMENT 'from deserializer', 
+  `mobile` string COMMENT 'from deserializer')
+ROW FORMAT SERDE 
+  'org.openx.data.jsonserde.JsonSerDe' 
+STORED AS INPUTFORMAT 
+  'org.apache.hadoop.mapred.TextInputFormat' 
+OUTPUTFORMAT 
+  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://openaq-fetches/realtime-gzipped'
+TBLPROPERTIES (
+  'transient_lastDdlTime'='1518373755')
+```
+
+##### SQL Query to find the US city with the highest average Ozone reading on 10/9/2018
+
+```sql92
+SELECT country,
+         city,
+         parameter,
+         AVG(value) AS avg_reading
+FROM openaq
+WHERE parameter='o3'
+        AND country='US'
+        AND date.utc
+    BETWEEN '2018-10-09T00:00:00.000Z'
+        AND '2018-10-09T23:59:59.000Z'
+GROUP BY  country, city, parameter
+ORDER BY  AVG(value) DESC;
+```
 
 #### Resources
 https://d1.awsstatic.com/whitepapers/Storage/AWS%20Storage%20Services%20Whitepaper-v9.pdf
