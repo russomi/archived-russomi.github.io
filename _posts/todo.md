@@ -21,8 +21,11 @@ Topics to write about and research...
 
 - [ ] VPC Flow flogs - How does Cloudtrail work?  Does it send to both s3 and cloudwatch?
 - [ ] Config Aggregator - How does Guard duty work?
-- [ ] Setup Roles/Permissions for Service Catalog Users and Admins
+- [ ] Setup Roles/Permissions for Service Catalog Users and Admins -- share or import catalog?
 - [ ] Add new account to existing directory and assign permissions
+- [ ] Increase the timeout for account/roles for cli access
+
+
 
 ## Topics to Research
 

@@ -61,6 +61,9 @@ Study notes and labs...
     these data and publicly sharing them, and our community makes them more universally-accessible to both humans and 
     machines.
 - [ ] Setup a way to query that data via AWS Services and tools
+    - [How in the world do you access air quality data older than 90 days on the OpenAQ platform? One way is to use Amazon Athena.](https://medium.com/@openaq/how-in-the-world-do-you-access-air-quality-data-older-than-90-days-on-the-openaq-platform-8562df519ecd)
+    - [Accessing data older than 90 days from OpenAQ](https://gist.github.com/jflasher/573525aff9a5d8a966e5718272ceb25a)
+    - [Amazon Athena User Guide](https://docs.aws.amazon.com/en_pv/athena/latest/ug/what-is.html)
 - [ ] What city had the highest average ozone (O3) reading on October 9, 2018
 
 #### Resources
