@@ -22,8 +22,78 @@ Study notes and labs...
 * Ephemeral Data Store - data is lost when stopped
     * EC2 instance store
     * Memcached
+    
+* IOPS vs. Throughput
+    * Input/Output Operations per Second (IOPS) - Measure of how fast we can read and write to a device (Fast car)
+    * Throughput - Measure of how much data can be moved at a time (Dump Truck)
+    
+* Consistency Models
+    * ACID
+        * Atomic
+        * Consistent
+        * Isolated
+        * Durable
+    * BASE
+        * Basic Availability
+        * Soft-State - not instantly consistent
+        * Eventually Consistent
 
-#### S3
+#### Amazon S3
+
+* Overview
+    * Released in 2006
+    * Object Store
+    * Max object size 5TB
+    * Largest object in single PUT is 5GB
+    * Use multi-part uploads if larger than 100MB
+    * File Path is really a key in an Object Store
+
+* S3 Consistency
+    * Read-after-Write consistency for PUTs of new objects 
+        * Create a new object that has never been asked for and you can read immediately
+    * HEAD or GET before an object exists results in eventual consistency 
+        * If the object has been requested before and it did not exist, it will be eventually consistent
+    * Eventual Consistency for overwrite PUTs and DELETEs
+        * Delete or Update object locally and replicate to other places, until then serve the existing file
+    * Updates to a single key are atomic
+        * Only one update at a time, processed in the order of request timestamp, and changes are see eventually
+
+* S3 Security
+    * User-based - IAM Policy
+    * Resource-based - Object ACL, Bucket Policy
+    * Optional MFA before Delete
+
+* IAM -> Bucket Policy -> Object ACL
+    * Is your user account allowed?
+    * Does the bucket policy allow access?
+    * Does the object ACL allow you to access?
+
+* Data Protection
+    * Versioning
+        * New Version each write
+        * Supports "Roll-Back" and "un-delete"
+        * Old versions count as billable size until deleted
+        * Integrated with Lifecycle Management
+    * Optional MFA
+        * Delete
+        * Change the versioning state for a bucket
+    * Cross-Region Replication
+        * Security
+        * Compliance
+        * Latency
+
+* Lifecycle Management
+    * Optimize Storage Costs
+    * Adhere to data retention policies
+    * Maintain S3 volumes
+
+* Analytics
+
+* Encryption
+
+* Additional Features
+
+
 
 #### Glacier
 
