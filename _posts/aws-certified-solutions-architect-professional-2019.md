@@ -88,12 +88,25 @@ Study notes and labs...
     * Maintain S3 volumes
 
 * Analytics
+    * Data Lake - Athena, Redshift Spectrum, QuickSight
+    * IoT Streaming Data Repository - Kinesis Firehose
+    * Machine Learning and AI Storage - Rekognition, Lex, MXNet
+    * Storage Class Analytics - S3 Management Analytics
 
 * Encryption
+    * SSE-S3 - Use S3's existing encryption key for AES-256
+    * SSE-C - Use custom AES-256 encryption key
+    * SSE-KMS - Use a key generated and managed by AWS Key Management Service
+    * Client-Side - Encrypt objects using your own local encryption process before uploading to S3 i.e. PGP, GPG, etc.
 
 * Additional Features
-
-
+    * Transfer Acceleration - Speed up data uploads using CloudFront in reverse
+    * Requester Pays - The requester rather than bucket owner pays for requests and data transfers
+    * Tags - Assign tags to objects for use in costing, billing, security, etc.
+    * Events - Trigger notifications to SNS, SQS or Lambda when certain events happen in your bucket
+    * Static Web Hosting - Simple and massively scalable static website hosting
+    * BitTorrent - Use the BitTorrent protocol to retrieve publicly available object by automatically generating a 
+    .torrent file (peer to peer)
 
 #### Glacier
 
@@ -141,6 +154,7 @@ Study notes and labs...
 ##### AWS Athena CLI examples
  
 ```shell script
+# Default Athena Bucket: arn:aws:s3:::aws-athena-query-results-565666710920-us-east-1
 aws s3 mb s3://openqa-athena-output
 aws athena start-query-execution --query-string "CREATE database openaqdatabase" --result-configuration "OutputLocation=s3://openqa-athena-output"
 aws athena get-query-execution --query-execution-id 0202cd7a-42da-4202-b6e9-ba9bd00e77c5
