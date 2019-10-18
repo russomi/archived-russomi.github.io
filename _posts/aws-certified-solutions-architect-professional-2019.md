@@ -108,7 +108,17 @@ Study notes and labs...
     * BitTorrent - Use the BitTorrent protocol to retrieve publicly available object by automatically generating a 
     .torrent file (peer to peer)
 
-#### Glacier
+#### Amazon Glacier
+
+* Overview
+    * Cheap, slow to respond, seldom accessed
+    * "Cold Storage"
+    * Used by AWS Storage Gateway Virtual Table Library
+    * Integrated with AWS S3 via Lifecycle Management
+    * Faster retrieval speed options if you pay more
+
+
+
 
 #### Elastic Block Storage
 
