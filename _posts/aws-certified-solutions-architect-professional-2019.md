@@ -117,8 +117,20 @@ Study notes and labs...
     * Integrated with AWS S3 via Lifecycle Management
     * Faster retrieval speed options if you pay more
 
+* Glacier - Standalone service
+    * Glacier Vault - Analogous to S3 Bucket
+    * Archive - Analogous to S3 Object, immutable, file, zip, Max Size 40TB 
+    * Glacier Vault Lock Policy - immutable, different than access policy, applies rules (i.e. no delete allowed)
+    * Access Policy - IAM policy to allow users to access to the Glacier Vault or Glacier Vault Lock
 
+* Vault Lock vs. Access Policy
 
+> a vault lock policy can be locked to prevent future changes, providing strong enforcement for your compliance 
+> controls. You can use the vault lock policy to deploy regulatory and compliance controls, which typically require 
+> tight controls on data access. In contrast, you use a vault access policy to implement access controls that are not 
+> compliance related, temporary, and subject to frequent modification. Vault lock and vault access policies can be used 
+> together. For example, you can implement time-based data retention rules in the vault lock policy (deny deletes), 
+> and grant read access to designated third parties or your business partners (allow reads).
 
 #### Elastic Block Storage
 
