@@ -134,18 +134,182 @@ Study notes and labs...
 
 #### Elastic Block Storage
 
+* Overview
+    * Virtual Hard drives
+    * Only used with EC2
+    * Tied to a single AZ
+    * Choices for IOPS, Throughput, and Cost
+    * Snapshots
+    * You buy 64 blocks but are only using 4
+    * Detach and Attach to a different instance
+    
+* Instance Stores
+    * Temporary
+    * Locked to a specific EC2 instance
+    * Ideal for caches, buffers, work areas
+    * Data goes away when EC2 is stepped or terminated
+    * Slightly faster than EBS (direct attached storage vs. NAS)
+
+* Snapshots
+    * Cost-effective and low effort backup strategy
+    * Share dataset with other user or accounts
+    * Used to migrate to a new AZ or region
+    * Convert unencrypted volume to an encrypted volume
+    * Snapshots record changes and does not equate to total size of volume
+    * Collection of pointers stored in S3
+    * Data Lifecycle Manager for EBS Snapshots
+    * Automate the creation and deletion of EBS snapshots based on a schedule, targeted by tags
+    * Retention rules to delete stale snapshots and save on costs
+
 #### Elastic File System
 
+* Overview
+    * NFS released by Sun 1984
+    * Implementation of NFS file share protocol, not secure
+    * Elastic storage capacity and pay for only what you use (contrast to EBS)
+    * Multi-AZ metadata and data storage
+    * Configure mount-points in one or many AZs
+    * In theory, can be mounted from on-premises systems... 
+        * needs HA connectivity, not secure
+        * Alternative to use is AWS DataSync
+            * Purpose built protocol, secure
+            * Keeps storage on-prem in sync with EFS or S3
+            * Also supports EFS-to-EFS sync
+    * Cost is a factor, 3x cost to EBS, 20x cost to S3
+    * Some NFS4 features are not used
+    
 #### Storage Gateway
+
+* Overview
+    * Virtual machine that runs on-prem with VMWare or HyperV or Dell hardware appliance
+    * Provides local storage resources backed by AWS S3 and Glacier
+    * Often used in disaster recovery preparedness to sync to AWS
+    * Useful in cloud migrations
+    
+* Operation Modes
+    * File Gateway - NFS, SMB - Allow on-prem or EC2 instances to store objects in S3 via FNS or SMB mount point
+    * Volume Gateway Stored Mode (Gateway-stored Volumes) - ISCSI - Async replication of on-prem data to S3
+    * Volume Gateway Cached Mode (Gateway-cached volumes) - ISCSI - Primary data stored on S3 with frequently access 
+    data cached locally on-prem
+    * Tape Gateway (Gateway-Virtual Tape Library) - ISCSI - Virtual media changer and tape library for use with 
+    existing backup software
 
 #### WorkDocs
 
+* Overview
+    * Secure, fully managed file collaboration service
+    * Can integrate with AD for SSO
+    * Web, mobile and native clients (no linux client)
+    * Supports HIPPA, PCI DSS and ISO compliance requirements
+    * Available SDK for creating complementary apps
+
 #### EC2 Databases
+
+* Overview
+    * Run any database with FULL control and ultimate flexibility
+    * Must manage everything like backups, redundancy, patching, scale
+    * Option if you require a database not yet supported by RDS such as IBM DB2 or SAP HANA
+    * Option if it is not feasible to migrate to AWS-managed database
+    * See the Quickstart for [SAP HANA on AWS](https://aws.amazon.com/quickstart/architecture/sap-hana/)
 
 #### RDS
 
+* Overview
+    * Managed database option for 
+        * MySQL
+        * Maria
+        * PostgresSQL 
+        * Microsoft SQL Server 
+        * Aurora - Oracle and MySQL-compatible 
+    * Best for structured, relational data store needs
+    * Aims to be a drop-in replacement for existing on-prem instances (same database)
+    * Automated backups and patching
+    * User defined maintenance windows
+    * Automated scaling, replication, and redundancy
+    
+* Anti-Patterns
+    * Large binary objects (BLOBs) - use S3
+    * Automated scalability - use DynamoDB
+    * Name/Value Data Structures - use DynamoDB
+    * Unstructured or unpredictable - use DynamoDB
+    * Other database platforms like IBM DB2 or SAP HANA - use EC2
+    * You need complete control over the database - use EC2
+    
+* Redundancy
+    * Multi-AZ RDS (Master/Stand-by/Read Replica) - Sync replication in region
+        * Automated promotion of Stand-by to Master on AZ failure
+    * Cross Region Read Replicas - Async replication across regions
+        * Manual two-step process to promote Read Replica to new Master on Region Failure
+        * This could be automated, but not recommended
+    * Non-transactional storage engines do not support replication
+        * Must use InnoDB or XtraDB on Maria (fork of MySQL)
+
+
 #### DynamoDB
 
+* Overview
+    * Managed, multi-AZ NoSQL data store with Cross-Region Replication option
+    * Default is eventually consistent with reads, but can request strongly consistent read via SDK
+    * Priced on throughput, rather than compute
+    * Provision read and write capacity in anticipation of need
+    * Autoscale capacity adjusts per configured min/max levels
+    * On-Demand Capacity for flexible capacity at a small premium cost
+    * Achieve ACID compliance with DynamoDB Transactions
+    
+* Relational vs NoSQL
+    * Tables and Fields vs. Name Value Pairs
+    * Primary key must be unique aka Partition key
+    * To read, only need primary key
+    * A composite primary key - Partition key and Sort key
+        * Order Number and Timestamp
+
+* Secondary Indexes
+    * Global Secondary Index - Partition Key and Sort Key can be different from those on the table
+        * Not restricted, but Global
+    * Local Secondary Index - Same partition key as the table, but different sort key
+        * Stay local, respect the partition key but customize the sort key 
+    * Max 5 local and 5 global
+    * Max 20 attributes across all indexes
+    * Indexes take up storage space
+
+* When to use Global vs. Local
+    * Global Secondary Index
+        * When you want a fast query of attributes outside the primary key -- without having to do a table scan
+        * "I'd like to query Sales Orders by Customer number rather than Sales Order Number..."
+    * Local Secondary Index
+        * When you already know the partition key and want to quickly query on some other attribute
+        * "I have the Sales Order Number, but I'd like to retrieve only those records with a certain Material Number..."
+    * Attribute Projections
+        * Secondary Index is similar to a view
+        * You can choose which attributes are projected into the index
+
+* Secondary Indexes - if you need to...
+    * ... access just a few attributes the fastest way possible
+        * Consider: Consider projecting attributes in a Global Secondary index
+        * Cost: Minimal
+        * Benefit: Lowest possible latency access for non-key items
+    * ... frequently access some non-key attributes
+        * Consider: Projecting those attributes in a Global Secondary index
+        * Cost: Moderate, aim to offset cost of table scans
+        * Benefit: Lowest possible latency access for non-key items
+    * ... frequently access most non-key attributes
+        * Consider: Projecting those attributes or even the entire table in a global secondary index
+        * Cost: Up to Double
+        * Benefit: Maximum Flexibility
+    * ... rarely query but write or update frequently
+        * Consider: Projecting keys only for the global secondary index
+        * Cost: Minimal
+        * Benefit: Very fast write or updates for non-partition key items
+
+* DynamoDB Design Best Practices
+    * Partition Key with different values for the sort key
+    * Sparse indexes ... not every record has the indexed attribute in a Secondary Index
+    * Aggregations can be supported by creating a global secondary index on date/period value
+    * Create table replicas with Secondary Indexes
+        * Could be used to support High Write on Table and High Read on Secondary Index
+        * Support customer tiers where basic tier has lower read/write capacity against index, 
+        premium tier has higher read/write against table
+    
 #### Redshift
 
 #### Neptune
@@ -340,3 +504,28 @@ https://www.youtube.com/watch?v=1Z4BfRj2FiU
 - [AWS Certified Solutions Architect - Professional 2019](https://acloud.guru/learn/aws-certified-solutions-architect-professional-2019)
 - [Registry of Open Data on AWS](https://registry.opendata.aws/)
 
+https://docs.aws.amazon.com/en_pv/elasticloadbalancing/latest/network/introduction.html
+https://docs.aws.amazon.com/en_pv/vpc/latest/userguide/vpc-nat-comparison.html
+https://docs.aws.amazon.com/en_pv/directconnect/latest/UserGuide/getting_started.html
+https://docs.aws.amazon.com/en_pv/vpc/latest/userguide/vpc-network-acls.html#nacl-ephemeral-ports
+https://docs.aws.amazon.com/en_pv/vpc/latest/userguide/vpc-ip-addressing.html
+https://docs.aws.amazon.com/en_pv/vpc/latest/userguide/VPC_DHCP_Options.html
+https://docs.aws.amazon.com/en_pv/vpc/latest/userguide/VPC_Subnets.html
+https://aws.amazon.com/dms/
+https://docs.aws.amazon.com/en_pv/emr/latest/ManagementGuide/emr-plan-file-systems.html
+https://docs.aws.amazon.com/en_pv/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-s3-messages.html
+https://docs.aws.amazon.com/en_pv/streams/latest/dev/developing-consumers-with-kcl.html
+https://docs.aws.amazon.com/en_pv/amazondynamodb/latest/developerguide/HowItWorks.Partitions.html
+https://d1.awsstatic.com/whitepapers/aws-scalable-gaming-patterns.pdf
+https://docs.aws.amazon.com/en_pv/autoscaling/ec2/userguide/scaling_plan.html
+https://docs.aws.amazon.com/en_pv/amazondynamodb/latest/developerguide/bp-time-series.html
+https://aws.amazon.com/rds/aurora/faqs/
+https://d1.awsstatic.com/whitepapers/architecture/AWS-Reliability-Pillar.pdf
+https://docs.aws.amazon.com/en_pv/AWSEC2/latest/UserGuide/placement-groups.html#placement-groups-spread
+https://aws.amazon.com/redshift/faqs/
+https://media.amazonwebservices.com/AWS_Disaster_Recovery.pdf
+https://d1.awsstatic.com/whitepapers/overview-of-deployment-options-on-aws.pdf
+https://docs.aws.amazon.com/en_pv/elasticbeanstalk/latest/dg/using-features.deploy-existing-version.html
+https://d1.awsstatic.com/whitepapers/overview-of-deployment-options-on-aws.pdf
+https://aws.amazon.com/ec2/dedicated-hosts/
+https://d1.awsstatic.com/whitepapers/architecture/AWS-Cost-Optimization-Pillar.pdf
