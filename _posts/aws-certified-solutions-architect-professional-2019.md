@@ -312,15 +312,137 @@ Study notes and labs...
     
 #### Redshift
 
+* Overview
+    * Fully managed, clustered peta-byte scale data warehouse
+    * Extremely cost-effective as compared to some other on-premises daa warehouse platforms
+    * PostgreSQL compatible with JDBC and ODBC drivers available
+    * Compatible with most BI tools out of the box
+    * Features parallel processing and columnar data stores which are optimized for complex queries
+    * Redshift Spectrum - Option to query directly from data files on S3
+
+* Data Lake
+    * Query raw data without extensive pre-processing
+    * Lessen time from data collection to data value
+    * Identify correlations between disparate data sets
+
 #### Neptune
 
+* Overview
+    * Fully-managed graph database
+    * Supports open graph APIs for both Gremlin and SPARQL
+    * Relationships between objects
+    * Social Media
+
 #### Elasticache
+    
+* Overview
+    * cache = pronounced like cash
+    * Fully managed implementations of two popular in-memory data stores - Redis and Memcached
+    * Automated scalability for memory, writes, reads
+    * Transient in-memory key/value store - not persistent 
+        * Redis does support backups and restores
+    * Billed by node size and hours of usage
+    
+* Use / Benefit
+    * Web Session Store - In cases with load-balanced web servers, store web session information in Redis to decouple 
+    web frontend from web session and make the web tier stateless
+    * Database Caching - Use Memcached in front of AWS RDS to cache popular queries to offload work from RDS and return
+    results faster
+    * Leaderboards - Use Redis to provide a live leaderboard for millions of users of your mobile app
+    * Streaming Data Dashboards - Provide a landing spot for streaming sensor data on the factory floor, live real-time
+    dashboard displays
+
+* Memcached vs. Redis
+    * Memcached
+        * Simple, no-frills, straight-forward
+        * Supports scale out/in as demand changes
+        * You need to run multiple CPU cores and threads
+        * You need to cache objects (i.e. database queries)
+    * Redis
+        * You need encryption
+        * You need HIPAA compliance
+        * Support for clustering
+        * Complex data types
+        * High Availablility (replication)
+        * Pub/Sub capability
+        * Geospacial Indexing
+        * Backup and Restore
 
 #### Other Datastore Options
 
-#### Comparing DB Options
+* Amazon Athena
+    * SQL Engine overlaid on S3 based on Presto
+    * Query raw data objects as they sit in an S3 bucket in .csv or .json format
+    * Use or convert your data to Parquet format for performance
+    * Similar to Redshift Spectrum but...
+        * Use Amazon Athena when data lives on S3 without the need to perform joins with other data sources
+        * Use Redshift Spectrum when you want to join S3 data with existing Redshift tables or create union products
+        
+* Amazon Quantum Ledger Database
+    * Based on blockchain concepts
+    * Provides an immutable and transparent journal as a service
+    without having to setup and maintain an entire blockchain framework
+    * Centralized design (as opposed to decentralized consensus-based design for common blockchain frameworks)
+    supports higher performance and scalability
+    * Append-only concept where each record contributes to the integrity of the chain
 
+* Amazon Managed Blockchain
+    * Fully managed blockchain framework supporting open source frameworks of Hyperledger Fabric and Ethereum
+    * Distributed consensus-based concept consists of a network, members (or other AWS Accounts), nodes (instances), 
+    and potentially applications
+    * Uses the Amazon QLDB ordering service to maintain complete history of transactions
+
+* Amazon Timestream Database
+    * Fully managed database service specifically built for storing and analyzing time-series data
+    * Alternative to DynamoDB or Redshift
+    * Built in analytics like interpolation and smoothing
+    * Use Cases
+        * Industrial Machinery
+        * Sensor Networks
+        * Equipment Telemetry
+
+* Amazon DocumentDB
+    * MongoDB compatibility
+    * Emulates the MongoDB API so it acts like MongoDB to existing clients and drivers
+    * Fully managed with multi-AZ, scalable, integrated with KMS, backed up to S3
+    * Option if you currently use MongoDB and want to get out of the server management business
+    
+* Amazon ElasticSearch (ES)
+    * Mostly a search engine but also a document store
+    * Amazon ElasticSearch Service aka ELK stack
+    * Intake data from CloudWatch, Firehose, IoT
+
+#### Database Comparisons
+
+* Options
+    * Database on EC2
+        * Ultimate control over database
+        * Preferred DB not supported on RDS
+    * Amazon RDS
+        * Need traditional relation database for OLTP
+        * Your data is well-formed and structured
+    * Amazon DynamoDB
+        * Name/Value pair data or unpredictable data structure
+        * In-memory performance with persistence
+    * Amazon Redshift
+        * Massive amounts of data
+        * Primary OLAP workloads
+    * Amazon Neptune
+        * Relationships between objects a major portion of data value
+    * Amazon Elasticache
+        * Fast temporary storage for small amounts of data
+        * Highly volatile data
+        
 #### Pro Tips
+
+* Archiving and Backup is often a great "pilot" project to build AWS business case
+* Make use of the S3 endpoints within your VPC
+* Learn how to properly secure your S3 bucket
+* Encrypt Everything!
+* Consider Aurora for your production MySQL/Maria or PostgreSQL needs
+* Consider NoSQL if you don't need relational database features
+* Databases on EC2 cost less, but requires management (backups, patching, OS-level hardening)
+* There can be a performance hit when RDS backups run if you have only a single AZ instance
 
 #### Lab - Air Quality Analysis
 
