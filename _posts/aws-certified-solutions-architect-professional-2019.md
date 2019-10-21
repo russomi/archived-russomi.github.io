@@ -9,8 +9,6 @@ Study notes and labs...
 
 #### Concepts
 
-##### Data Persistence
-
 * Persistent Data Store - durable, survives reboots, restarts, power cycles
     * Glacier
     * RDS
