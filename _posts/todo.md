@@ -1,7 +1,3 @@
----
-published: false
----
-
 # TODO
 Topics to write about and research...
 
